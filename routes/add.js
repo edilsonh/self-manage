@@ -14,7 +14,6 @@ console.log('HEEERRRRREEEE!!');
     res.redirect(`/`)
 
   })
-  console.log();
 })
 
 module.exports = router;
