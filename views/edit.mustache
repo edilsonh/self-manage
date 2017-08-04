@@ -29,8 +29,31 @@
       <label for="">Phone: </label>
       <input type="number" name="phone" value="{{ phone }}">
 
-      <label for="">Skills: </label>
-      <input type="text" name="skills" value="{{ skills }}">
+      <fieldset>
+        <legend>What skills you got son?</legend>
+        <div>
+          <input type="checkbox" name="skills" value={{skills}}>
+          <label for="aim">Aim</label>
+        </div>
+        <div>
+          <input type="checkbox" name="skills" value={{skills}}>
+          <label for="stamina">Stamina</label>
+        </div>
+        <div>
+          <input type="checkbox" name="skills" value={{skills}}>
+          <label for="driving">Driving</label>
+          <div>
+            <input type="checkbox" name="skills" value={{skills}}>
+            <label for="flying">Flying</label>
+          </div>
+          <div>
+            <input type="checkbox" name="skills" value={{skills}}>
+            <label for="fighting">Fighting</label>
+          </div>
+        </div>
+      </fieldset>
+
+
 
       <label for="">University: </label>
       <input type="text" name="university" value="{{ university }}">
