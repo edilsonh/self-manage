@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="/profile.css">
 </head>
 <body>
+  <nav>
+    <a href="http://localhost:3000">User Profiles</a>
+  </nav>
   {{ #user }}
   <div class="profile">
     <div class="image">
@@ -41,7 +44,7 @@
     <form class="" action="/delete/{{_id}}" method="post">
       <button type="submit" name="button">Delete</button>
     </form>
-    <form class="" action="" method="post">
+    <form class="" action="/edit/{{_id}}" method="get">
       <button type="submit" name="button">Edit</button>
     </form>
   </div>

@@ -17,9 +17,19 @@ router.get('/:id', function(req, res){
       console.log(data);
       res.render('profile', { user: data });
     })
-    .catch((err)=>{
+    .catch((err) => {
       console.log(err);
     });
+})
+
+router.get("/edit/:id", function(req, res) {
+  User.findOne({ _id: req.params.id })
+    .then((data) => {
+      res.render("edit", { user: data });
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 })
 
 

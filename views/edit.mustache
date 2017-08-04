@@ -5,9 +5,11 @@
     <title>Add Profile</title>
   </head>
   <body>
+    {{ #user }}
+
     <form class="" action="/adding" method="post">
       <label for="">Name: </label>
-      <input type="text" name="name" value="">
+      <input type="text" name="name" value="{{ name }}">
 
       <label for="">City: </label>
       <input type="text" name="city">
@@ -35,6 +37,8 @@
 
       <label for="">Username: </label>
       <input type="text" name="username">
+
+      {{ /user}}
 
       <button type="submit" name="button">Submit</button>
 
