@@ -23,6 +23,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
 
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+})
+
 passport.use(new LocalStrategy(
     function(username, password, done) {
         User.authenticate(username, password, function(err, user) {
@@ -59,6 +65,33 @@ app.set("port", 3000)
 app.use(express.static(path.join(__dirname, "public")))
 
 app.use(bodyParser.urlencoded({extended: false}))
+
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        User.authenticate(username, password, function(err, user) {
+            if (err) {
+                return done(err)
+            }
+            if (user) {
+                return done(null, user)
+            } else {
+                return done(null, false, {
+                    message: "There is no user with that username and password."
+                })
+            }
+        })
+    }));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+        done(err, user);
+    });
+});
+
 
 app.use(indexRoute)
 app.use(loginRoute)

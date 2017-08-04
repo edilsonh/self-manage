@@ -31,7 +31,7 @@ router.get("/edit/:id", function(req, res) {
     .catch((err) => {
       console.log(err);
     })
-
+  })
 
 
     router.post('/update/:id', function(req, res){
@@ -52,10 +52,4 @@ router.get("/edit/:id", function(req, res) {
 
       })
     })
-})
-
-
-
-
-
 module.exports = router;
